@@ -1,0 +1,19 @@
+.measurements ul {
+    list-style-type: none;
+    padding: 0;
+    margin:20px;
+    cursor: pointer;
+
+}
+
+.measurements li {
+    font-weight: bold;
+    padding: 10px;
+    border-radius: 25px;
+
+}
+
+
+.measurements li:hover {
+    background-color: steelblue;
+}
