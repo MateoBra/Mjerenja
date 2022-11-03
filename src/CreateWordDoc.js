@@ -50,8 +50,6 @@ function CreatWordDoc(props) {
         }
     })
 
-
-
     const table = new Table({
         columnWidths: [3505, 5505],
         rows:

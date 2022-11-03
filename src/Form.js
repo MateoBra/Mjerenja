@@ -5,7 +5,6 @@ import React from "react"
 
 function Form() {
 
-
 const[page, setPage] = React.useState(0);
 
 const[getName, setName] = React.useState()

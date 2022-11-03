@@ -69,4 +69,3 @@ function Second(props) {
 }
 
 export default Second;
-
