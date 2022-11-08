@@ -9,7 +9,7 @@ function CreatWordDoc(props) {
     const [message, setMessage] = React.useState("")
 
     function handleChange(e) {
-        
+
         setMessage(e.target.value)
     }
 
@@ -24,9 +24,11 @@ function CreatWordDoc(props) {
     data.map((x) => {
         let paragraph = []
         if (x.status === true) {
-            x.details.map((i) => paragraph.push(new Paragraph({text:i, spacing: {
-                before: 100,
-            }})))
+            x.details.map((i) => paragraph.push(new Paragraph({
+                text: i, spacing: {
+                    before: 100,
+                }
+            })))
             tables.push(
                 new TableRow({
                     children: [
@@ -35,7 +37,14 @@ function CreatWordDoc(props) {
                                 size: 3505,
                                 type: WidthType.DXA,
                             },
-                            children: [new Paragraph(x.name + " x"+ x.numb)],
+                            children: [new Paragraph(x.name)],
+                        }),
+                        new TableCell({
+                            width: {
+                                size: 700,
+                                type: WidthType.DXA,
+                            },
+                            children: [new Paragraph("x" + x.numb)],
                         }),
                         new TableCell({
                             width: {
@@ -43,49 +52,49 @@ function CreatWordDoc(props) {
                                 type: WidthType.DXA,
                             },
                             children: paragraph,
-                            
+
                         }),
                     ],
                 }))
         }
     })
 
-    const table = new Table({
-        columnWidths: [3505, 5505],
-        rows:
-            tables,
+const table = new Table({
+    columnWidths: [3505, 5505],
+    rows:
+        tables,
 
-    });
+});
 
-    const doc = new Document({
-        sections: [
-            {
-                children: [
-                    new Paragraph({
-                        text: "Transformatorska stanica " + message,
-                        heading: HeadingLevel.HEADING_1,
-                        alignment: AlignmentType.CENTER,
-                        spacing: {
-                            after: 200,
-                        }
-                    }),
-                    table
-                ]
-            }
-        ],
-    });
+const doc = new Document({
+    sections: [
+        {
+            children: [
+                new Paragraph({
+                    text: "Transformatorska stanica " + message,
+                    heading: HeadingLevel.HEADING_1,
+                    alignment: AlignmentType.CENTER,
+                    spacing: {
+                        after: 200,
+                    }
+                }),
+                table
+            ]
+        }
+    ],
+});
 
-    return (
-        <div className="wordDoc">
-            <label>Transformatorska stanica</label>
-            <br></br>
-            <input placeholder="Naziv transformatorske stanice" type="text" onChange={handleChange} value={message}></input>
-            <br></br>
+return (
+    <div className="wordDoc">
+        <label>Transformatorska stanica</label>
+        <br></br>
+        <input placeholder="Naziv transformatorske stanice" type="text" onChange={handleChange} value={message}></input>
+        <br></br>
 
-            <button onClick={() => Download()}>Download</button>
-        </div>
+        <button onClick={() => Download()}>Download</button>
+    </div>
 
-    )
+)
 }
 export default CreatWordDoc;
 
