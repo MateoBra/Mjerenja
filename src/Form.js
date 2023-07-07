@@ -1,17 +1,17 @@
 import CreatWordDoc from "./CreateWordDoc";
-import Measurements from "./Measurements"
+import Measurements from "./Measurements";
 import Second from "./Second";
-import React from "react"
+import React from "react";
+import "./Form.css";
 
 function Form() {
-
   const [page, setPage] = React.useState(0);
 
-  const [getName, setName] = React.useState()
+  const [getName, setName] = React.useState();
 
-  const [checkedData, setCheckedData] = React.useState()
+  const [checkedData, setCheckedData] = React.useState();
 
-  const FormTitles = ["Mjerenja", "Oprema", "Download"]
+  const FormTitles = ["Sekundarna oprema", "Oprema", "Download"];
 
   const PageDisplay = () => {
     if (page === 0) {
@@ -23,40 +23,56 @@ function Form() {
     if (page === 2) {
       return <CreatWordDoc getName={getName} checkedData={checkedData} />;
     }
-  }
+  };
   return (
     <div className="form">
       <div className="progressbar">
-        <div style={{ width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%" }}></div>
+        <div
+          style={{
+            width: page === 0 ? "33.3%" : page === 1 ? "66.6%" : "100%",
+          }}
+        ></div>
       </div>
 
       <div className="form-container">
         <div className="header">
-          <h1>{FormTitles[page]}</h1></div>
+          <h1>{FormTitles[page]}</h1>
+        </div>
 
         {PageDisplay()}
         <div className="footer">
-          <button hidden={page == 0 ? "hidden" : null} onClick={() => { setPage((currPage) => currPage - 1) }}>Nazad</button>
-          <button hidden={page == 0 ? "hidden" : null}
+          <button
+            hidden={page == 0 ? "hidden" : null}
+            onClick={() => {
+              setPage((currPage) => currPage - 1);
+            }}
+          >
+            Nazad
+          </button>
+          <button
+            hidden={page == 0 ? "hidden" : null}
             onClick={() => {
               if (page === FormTitles.length - 1) {
                 window.location.reload();
               } else {
                 try {
                   if (checkedData.find((x) => x.status === true)) {
-                    setPage((currPage) => currPage + 1)
+                    setPage((currPage) => currPage + 1);
                   } else {
-                    alert("Ormar mora sadržavati minimalno 1 ponuđenu opremu")
+                    alert("Ormar mora sadržavati minimalno 1 ponuđenu opremu");
                   }
                 } catch {
-                  alert("Ormar mora sadržavati minimalno 1 ponuđenu opremu")
+                  alert("Ormar mora sadržavati minimalno 1 ponuđenu opremu");
                 }
               }
-            }}>{page === FormTitles.length - 1 ? "Početna" : "Dalje"}</button>
+            }}
+          >
+            {page === FormTitles.length - 1 ? "Početna" : "Dalje"}
+          </button>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Form
+export default Form;

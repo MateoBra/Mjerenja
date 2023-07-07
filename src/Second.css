@@ -13,7 +13,7 @@
 
 
 .displayData li:hover {
-    background-color: steelblue;
+    background-color: #4682b4;
 }
 
 .displayData input {
@@ -32,7 +32,7 @@
 }
 
 .displayData div button {
-    background-color: rgb(255, 0, 140);
+    background-color: #31697e;
     color: white;
     border: none;
     border-radius: .25rem;
@@ -45,7 +45,7 @@
     text-align: center;
     width: 20px;
     cursor: default;
-    border-color: rgb(255, 0, 140);
+    border-color: steelblue;
     border-width: 1px;
     margin:5px;
 }

@@ -1,13 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 .App {
-  background: rgb(255, 0, 228);
-  background: radial-gradient(
-    circle,
-    rgba(255, 0, 228, 1) 0%,
-    rgba(212, 51, 16, 1) 84%,
-    rgba(255, 0, 95, 1) 100%
-  );
+  background: steelblue;
+  background: linear-gradient(90deg, #3f51b5, #00bcd4);
   width: 100vw;
   min-height: 100vh;
   height: 100%;
@@ -66,7 +61,7 @@ body {
   border-radius: 7px;
   width: 100px;
   height: 40px;
-  background-color: rgb(255, 0, 140);
+  background-color: steelblue;
   font-weight: bold;
   color: white;
   border: 0 none;
@@ -74,6 +69,10 @@ body {
   cursor: pointer;
   padding: 10px 5px;
   margin: 10px 5px;
+
+}
+.form-container .footer button:hover{
+  background-color: #31697e;
 
 }
 
@@ -142,15 +141,5 @@ body {
   height: 40px;
   padding-left: 5px;
   font-size: 20px;
-}
-
-input {
-  border: 2px solid rgb(98, 0, 255);
-  border-radius: 5px;
-}
-
-input:focus {
-  border: 3px solid rgb(98, 0, 255);
-  
 }
 

@@ -18,18 +18,53 @@
     margin-top:10px;
     width: 100%;
 }
-
-.wordDoc button {
+.fileDownloadButton{
+    display: grid;
+    justify-content: center;
+}
+.fileDownloadButton > button {
+    
     width: 100px;
     height: 40px;
-    align-self: center;
     padding: 10px 5px;
     margin: 10px 90px;
-    background-color: rgb(255, 0, 140);
+    background-color: steelblue;
     border: none;
     color: white;
     border-radius: 0.25rem;
     cursor: pointer;
+    font-weight: bold;
+
+}
+
+.wordDoc button:hover {
+    background-color: #31697e;
 }
 
 
+.downloadButtons{
+    display: grid;
+    grid-template-columns: 2fr 1fr
+
+  
+}
+
+.downloadButtons > a> button {
+    width: 100px;
+    height: 40px;
+    align-self: center;
+    padding: 10px 5px;
+    margin: 0px 50px;
+    background-color: steelblue;
+    border: none;
+    color: white;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-weight: bold;  
+}
+.downloadButtons > a{
+
+    padding:5%;
+    font-weight: bold;
+
+}
